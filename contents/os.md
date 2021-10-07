@@ -190,6 +190,28 @@
 
 ### 프로세스 동기화
 > :arrow_double_up:[Top](#3-operating-system)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#3-operating-system)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
+> ## 프로세스 동기화
+
+*Critical Section(임계영역)
+ *멀티 스레딩에 문제점에서 나오듯, 동일한 자원을 동시에 접근하는 작업(e.g. 공유하는 변수 사용, 동일 파일을 사용하는 등)을 실행하는 코드 영역을 Critical Section 이라 칭한다.
+
+*Critical Section Problem(임계영역 문제)
+ *프로세스들이 Critical Section 을 함께 사용할 수 있는 프로토콜을 설계하는 것이다.
+
+*Requirements(해결을 위한 기본조건)
+ * Mutual Exclusion(상호 배제)  
+   프로세스 P1 이 Critical Section 에서 실행중이라면, 다른 프로세스들은 그들이 가진 Critical Section 에서 실행될 수 없다.
+ * Progress(진행)  
+   Critical Section 에서 실행중인 프로세스가 없고, 별도의 동작이 없는 프로세스들만 Critical Section 진입 후보로서 참여될 수 있다.
+ * Bounded Waiting(한정된 대기)  
+   P1 가 Critical Section 에 진입 신청 후 부터 받아들여질 때가지, 다른 프로세스들이 Critical Section 에 진입하는 횟수는 제한이 있어야 한다.
+
+*해결책
+ *Lock
+ * 하드웨어 기반 해결책으로써, 동시에 공유 자원에 접근하는 것을 막기 위해 Critical Section 에 진입하는 프로세스는 Lock 을 획득하고 Critical Section 을 빠져나올 때, Lock 을 방출함으로써 동시에 접         근이 되지 않도록 한다.
+
+*한계
+ * 다중처리기 환경에서는 시간적인 효율성 측면에서 적용할 수 없다.
 > - []()
 
 ### 메모리 관리 전략
